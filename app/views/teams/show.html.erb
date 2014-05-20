@@ -1,0 +1,13 @@
+<% provide(:title, 'All users') %>
+<h1>All teams</h1>
+
+<div class="span8">
+    <% if @team.users.any? %>
+      <h3>Users (<%= @team.users.count %>)</h3>
+      <% @users.each do |user| %>
+         <%= link_to user.name, user %>
+         <span class="content"><%= user.email %></span>
+      <%= will_paginate @users %>
+      <% end %>
+    <% end %>
+ </div>

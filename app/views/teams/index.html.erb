@@ -1,0 +1,16 @@
+<% provide(:title, 'All team') %>
+<h1>All teams</h1>
+
+<%= will_paginate %>
+
+<ul class="teams">
+  <% @teams.each do |team| %>
+    <li>
+      <%= link_to team.id, team %>
+      <span class="content"><%= team.description %></span>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+
