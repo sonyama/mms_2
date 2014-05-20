@@ -23,7 +23,7 @@ module SessionsHelper
   end
   
   def sign_out
-    ccurrent_user.no_password_validation = true
+    current_user.no_password_validation = true
     current_user.update_attributes remember_token: User.digest(User.new_remember_token)
     current_user.no_password_validation = false
     cookies.delete(:remember_token)
