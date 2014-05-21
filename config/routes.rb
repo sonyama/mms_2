@@ -1,11 +1,15 @@
 Mms2::Application.routes.draw do
   
-
+  namespace :admin do
+    resources :positions
+  end
+  
   resources :users
   resources :teams
   resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'
   match '/signup',  to: 'users#new',            via: 'get'
+  match '/new_position',  to: 'positions#new',  via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
