@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140521011915) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.integer  "team_id"
+    t.boolean  "admin",           default: false
     t.integer  "position_id"
   end
 
