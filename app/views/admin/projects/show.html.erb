@@ -1,0 +1,20 @@
+<% provide(:title, 'All project') %>
+<h1><%= @project.name %> </h1>
+
+<div class="span8">
+     <li> <%= link_to @project.name, [:admin, @project] %> </li>
+     <span class="content"> Abbreviation : <%= @project.abbreviation %> </span>
+     <span class="content"> Start date: <%= @project.start_date %> </span>
+     <span class="content"> End date: <%= @project.end_date %> </span>
+     <span class="content"> Team: <%= @project.team_id %> </span>
+     <span class="content"> End date: <%= @project.end_date %> </span>
+     <span class="content">Project Manager: <%= link_to @project_manager.name, @project_manager %> </span>
+     <div class="content">
+
+  
+      </div>
+    <%= link_to "Edit ", edit_admin_project_path(@project.id),
+                                class: "btn btn-large btn-primary" %>
+    <%= link_to "Delete", [:admin,@project], method: :delete, class: "btn btn-large btn-primary" ,
+                                  data: { confirm: "You sure?" } %>
+ </div>
