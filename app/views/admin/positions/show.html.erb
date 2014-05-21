@@ -1,0 +1,16 @@
+<% provide(:title, 'All positions') %>
+<h1><%= @position.name %> </h1>
+
+<div class="span8">
+    <% if @position.users.any? %>
+      <% @users.each do |user| %>
+         <%= link_to user.name, user %>
+         <span class="content"><%= user.email %></span>
+      <%= will_paginate @users %>
+      <% end %>
+    <% end %>
+    <%= link_to "Edit ", edit_admin_position_path(@position.id),
+                                class: "btn btn-large btn-primary" %>
+    <%= link_to "Delete", [:admin, @position], method: :delete, class: "btn btn-large btn-primary" ,
+                                  data: { confirm: "You sure?" } %>
+ </div>

@@ -1,0 +1,19 @@
+<% provide(:title, 'All positions') %>
+<h1>All positions</h1>
+
+<%= will_paginate %>
+
+<ul class="positions">
+  <% @positions.each do |position| %>
+    <li>
+      <%= link_to position.name, [:admin, position] %>
+      <span class="content"><%= position.abbreviation %></span>
+    </li>
+
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+
+<%= link_to "Create Position", new_admin_position_path,
+                                class: "btn btn-large btn-primary" %>
