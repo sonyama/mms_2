@@ -1,10 +1,10 @@
 Mms2::Application.routes.draw do
-  
   namespace :admin do
+    resources :users
+    resources :teams
     resources :positions
   end
-  
-  resources :users
+  resources :users, only: [:index, :show, :edit]
   resources :teams
   resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'

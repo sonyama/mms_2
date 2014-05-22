@@ -1,16 +1,5 @@
 class UsersController < ApplicationController
-  def new
-  end
-  
-  def create
-    @user = User.new user_params
-    if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
-    else
-      render 'new'
-    end
-  end
+  before_action :admin_user, only: [:create, :edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -23,11 +12,5 @@ class UsersController < ApplicationController
   def index
     @users = User.paginate page: params[:page]
   end
-  
-  private
 
-    def user_params
-      params.require :user .permit :name, :dob, :email, :password,
-                                   :password_confirmation
-    end
 end
