@@ -1,0 +1,19 @@
+<% provide(:title, 'All projects') %>
+<h1>All projects</h1>
+
+<%= will_paginate %>
+
+<ul class="projects">
+  <% @projects.each do |project| %>
+    <li>
+      <%= link_to project.name, [:admin, project] %>
+      <span class="content"><%= project.abbreviation %></span>
+    </li>
+
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+
+<%= link_to "Create project", new_admin_project_path,
+                                class: "btn btn-large btn-primary" %>
