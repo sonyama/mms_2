@@ -1,7 +1,8 @@
 class Project < ActiveRecord::Base
-  has_many :prousers, dependent: :destroy
-  has_many :users, through: :prouser
+  has_many :project_users, dependent: :destroy
+  has_many :users, through: :project_users
   belongs_to :team
   validates :team_id, presence: true
-  accepts_nested_attributes_for :users
+  belongs_to :manager, foreign_key: 'project_manager', class_name: User
+
 end

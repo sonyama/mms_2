@@ -9,12 +9,21 @@
      <span class="content"> Team: <%= @project.team_id %> </span>
      <span class="content"> End date: <%= @project.end_date %> </span>
      <span class="content">Project Manager: <%= link_to @project_manager.name, @project_manager %> </span>
-     <div class="content">
-
+     <div class="content"> Member: 
+      <% @project.users.each do |user| %>
+      <%= link_to user.name, [:admin, user] %>
+      <%end%>
+    
+     </span>
   
       </div>
     <%= link_to "Edit ", edit_admin_project_path(@project.id),
                                 class: "btn btn-large btn-primary" %>
     <%= link_to "Delete", [:admin,@project], method: :delete, class: "btn btn-large btn-primary" ,
                                   data: { confirm: "You sure?" } %>
- </div>
+    <%= link_to "Assign User ", edit_admin_assign_user_path(@project.id),
+                                class: "btn btn-large btn-primary" %>
+    
+    
+                                  
+</div>
