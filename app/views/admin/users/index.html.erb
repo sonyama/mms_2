@@ -4,7 +4,28 @@
 <%= will_paginate %>
 
 <ul class="users">
-  <%= render @users %>
+  <% @teams.each do |team| %>
+    <li><span class="content"><%= team.name %></span></li>
+    <ul>
+    <% @users.where(team_id: team.id).each do |user| %>
+      <li><span><%= link_to user.name, [:admin, user] %><span></li>
+    <% end %>
+    </ul>
+  <% end %>
+  
+  <li><span class="content"> Free Member </span></li>
+  <ul>
+  <% @users.each do |user| %>
+    <% if user.team_id.nil?%>
+  	  <li><span><%= link_to user.name, [:admin, user] %><span></li>
+  	<% end %>
+  <% end %>
+  </ul>
 </ul>
+<!--ul class="users">
+	<%= render @users.order(:team_id) %>
+</ul-->
 
 <%= will_paginate %>
+<%= link_to "Create User", new_admin_user_path,
+                                class: "btn btn-large btn-primary" %>

@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   has_many :prousers, dependent: :destroy
+  has_many :projects, through: :prousers
+  accepts_nested_attributes_for :projects
+
   belongs_to :team
-  validates :team_id, presence: true
   belongs_to :position
   validates :position_id, presence: true
   before_save {self.email = email.downcase}

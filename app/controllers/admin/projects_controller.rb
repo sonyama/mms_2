@@ -19,7 +19,6 @@ class Admin::ProjectsController < ApplicationController
   
   def show
     @project = Project.find params[:id]
-    @users = @project.users.paginate page: params[:page]
   end
   
   def edit

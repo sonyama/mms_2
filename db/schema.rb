@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522055414) do
+ActiveRecord::Schema.define(version: 20140526080807) do
 
   create_table "positions", force: true do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140522055414) do
     t.integer  "team_leader"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140522055414) do
     t.string   "remember_token"
     t.integer  "team_id"
     t.integer  "position_id"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
