@@ -1,3 +1,4 @@
 <li>
-  <%= link_to user.name, [:admin, user] %>
+  <span><%= link_to user.name, [:admin, user] %><span>
+  <span><%= link_to "Team #{user.team_id}", [:admin, user] %><span>
 </li>

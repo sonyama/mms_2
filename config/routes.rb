@@ -5,10 +5,10 @@ Mms2::Application.routes.draw do
     resources :teams
     resources :positions
     resources :projects
+    root :to =>  'static_pages#home'
   end
 
-  resources :users, only: [:index, :show, :edit]
-
+  resources :users, only: [:index, :show, :edit, :create]
   resources :teams
   resources :positions
   resources :sessions, only: [:new, :create, :destroy]
