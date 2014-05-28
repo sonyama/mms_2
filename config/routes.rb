@@ -5,6 +5,7 @@ Mms2::Application.routes.draw do
     resources :teams
     resources :positions
     resources :projects
+    resources :skills
 
     root :to =>  'static_pages#home'
 
