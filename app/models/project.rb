@@ -4,5 +4,5 @@ class Project < ActiveRecord::Base
   belongs_to :team
   validates :team_id, presence: true
   belongs_to :manager, foreign_key: 'project_manager', class_name: User
-
+  accepts_nested_attributes_for :users
 end
