@@ -1,0 +1,17 @@
+<% provide(:title, 'All team') %>
+<h1>All teams</h1>
+
+<%= will_paginate %>
+
+<ul class="teams">
+  <% @teams.each do |team| %>
+    <li>
+      <%= link_to team.name, [:admin, team] %>
+      <span class="content"><%= team.description %></span>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+<%= link_to "Create Team", new_admin_team_path,
+                                class: "btn btn-large btn-primary" %>

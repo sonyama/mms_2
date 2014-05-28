@@ -32,14 +32,14 @@ class Admin::UsersController < ApplicationController
   end
   
   def update
-    @projects = Project.all
-    @teams = Team.all
     @user = User.find params[:id]
     
     if @user.update_attributes user_params
       flash[:success] = "Team updated"
       redirect_to [:admin, @user]
     else
+      @projects = Project.all
+      @teams = Team.all
       render 'edit'
     end
   end
@@ -47,7 +47,7 @@ class Admin::UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted."
-    redirect_to root_url
+    redirect_to admin_root_url
   end
   private
 
