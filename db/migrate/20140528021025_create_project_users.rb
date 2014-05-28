@@ -1,6 +1,6 @@
-class CreateProusers < ActiveRecord::Migration
+class CreateProjectUsers < ActiveRecord::Migration
   def change
-    create_table :prousers do |t|
+    create_table :project_users do |t|
       t.integer :user_id
       t.integer :project_id
 

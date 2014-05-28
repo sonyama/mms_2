@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :prousers, dependent: :destroy
-  has_many :projects, through: :prousers
+  has_many :project_users, dependent: :destroy
+  has_many :projects, through: :project_users
   accepts_nested_attributes_for :projects
 
   belongs_to :team
