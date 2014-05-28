@@ -1,0 +1,21 @@
+<% provide(:title, "Assign User") %>
+<h1>Assign User</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_tag({controller: "/admin/assign_team_members", action: "update"}, method: "patch") do %>  
+      <div class="content"> Assign member: </span>     
+       <% @users.each do |user| %>
+         <%= label_tag user.id, user.name %>
+         <% if @team.user_ids.include?user.id %>
+           <%= check_box_tag "user_ids[]", user.id, checked = true %>
+         <% else%>
+           <%= check_box_tag "user_ids[]", user.id %>
+         <%end %>
+       <% end %>
+      </br></br>
+      <%= submit_tag "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
   attr_accessor :no_password_validation                 
   has_secure_password
   validates :password, length: { minimum: 6 }, unless: :no_password_validation
-  
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
