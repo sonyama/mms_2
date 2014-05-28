@@ -11,14 +11,15 @@
     <% @users.each do |user| %>
       <%= link_to user.name, [:admin, user] %>
       <span class="content"><%= user.email %></span>
-    <%= will_paginate @users %>
+      <%= will_paginate @users %>
+    <% end %>
   <% end %>
-<% end %>
 
-</div>
   <%= link_to "Edit ", edit_admin_team_path(@team.id),
                                 class: "btn btn-large btn-primary" %>
   <%= link_to "Delete", [:admin,@team], method: :delete, class: "btn btn-large btn-primary" ,
                                 data: { confirm: "You sure?" } %>
+  <%= link_to "Assign User ", edit_admin_team_assign_team_member_path(@team.id),
+                                class: "btn btn-large btn-primary" %>
     
  </div>

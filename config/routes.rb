@@ -2,13 +2,13 @@ Mms2::Application.routes.draw do
 
   namespace :admin do
     resources :users
-    resources :teams
+    resources :teams do
+      resource :assign_team_member
+    end
     resources :positions
     resources :projects
     resources :skills
-
     root :to =>  'static_pages#home'
-
     resources :assign_user
   end
 
