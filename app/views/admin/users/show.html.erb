@@ -4,10 +4,17 @@
   <span class="content"> Name: <%= @user.name %> </span>
   <span class="content"> Date Of Birth: <%= @user.dob %> </span>
   <span class="content"> Email: <%= @user.email %> </span>
-  <h2>Joined Project</h2>
-  <% @user.projects.each do |p| %>
-    <%= link_to p.name, [:admin,p] %><br>
-  <% end %>   
+  <span class="content"> Position: <%= @position.name %> </span>
+  <span class="content"> Team: <%= @team.name %> </span>
+  
+  <% if @user.projects.count>0 %>
+    <h2>Joined Project</h2>
+    <% @user.projects.each do |p| %>
+      <%= link_to p.name, [:admin,p] %><br>
+    <% end %>
+  <% else %>
+    <h2>Has not taken part in any project</h2>
+  <% end %>
 </div>
 <p></p>
 <div>

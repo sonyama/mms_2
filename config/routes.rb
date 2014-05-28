@@ -11,8 +11,9 @@ Mms2::Application.routes.draw do
     root :to =>  'static_pages#home'
     resources :assign_user
   end
-
-  resources :users, only: [:index, :show, :edit]
+  resources :skills
+  resources :projects
+  resources :users, only: [:index, :show, :edit, :create]
   resources :teams
   resources :sessions, only: [:new, :create, :destroy]
   root  'static_pages#home'

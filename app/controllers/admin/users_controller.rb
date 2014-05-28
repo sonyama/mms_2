@@ -18,6 +18,9 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    @position = Position.find @user.position_id
+    @team = @user.team
+
   end
 
   def index
