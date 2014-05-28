@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :project_users, dependent: :destroy
   has_many :projects, through: :project_users
   accepts_nested_attributes_for :projects
-
   belongs_to :team
   belongs_to :position
   validates :position_id, presence: true
