@@ -1,0 +1,13 @@
+<% provide(:title, 'CSV') %>
+<h1>CSV</h1>
+<p>Download</p>
+<%= link_to "Users CSV    ", admin_csvs_export_path(model: "User",format: "csv"),
+                                class: "btn btn-large btn-primary" %><br><br>
+<%= link_to "Teams CSV    ", admin_csvs_export_path(model: "Team",format: "csv"),
+                                class: "btn btn-large btn-primary" %><br><br>
+<%= link_to "Positions CSV", admin_csvs_export_path(model: "Position",format: "csv"),
+                                class: "btn btn-large btn-primary" %><br><br>
+<%= link_to "Projects CSV ", admin_csvs_export_path(model: "Project",format: "csv"),
+                                class: "btn btn-large btn-primary" %><br><br>
+                                
+                                
