@@ -11,7 +11,7 @@ Mms2::Application.routes.draw do
     resources :activity_logs, only: [:index, :destroy]
     resources :csvs, only: [:index]
     match 'csvs/export', to: 'csvs#export', via: 'get'
-    match 'csvs/import', to: 'csvs#import', via: 'get'
+    match 'csvs/import', to: 'csvs#import', via: 'post'
     root :to =>  'static_pages#home'
     resources :assign_user
   end
