@@ -1,4 +1,7 @@
 class Admin::ProjectsController < ApplicationController
+  
+  after_action :log_update, only: [:create, :update, :destroy]
+  
   def new
     @project = Project.new
   end

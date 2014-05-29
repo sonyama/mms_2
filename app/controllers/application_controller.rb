@@ -3,4 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include SessionsHelper
+  
+   def log_update
+    ActivityLog.create(time: Time.now, action: "#{controller_name} #{action_name}", :user => current_user.name, description: " ")
+  end
 end

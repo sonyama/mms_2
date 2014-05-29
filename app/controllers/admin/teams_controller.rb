@@ -1,5 +1,7 @@
 class Admin::TeamsController < ApplicationController
   
+  after_action :log_update, only: [:create, :update, :destroy]
+  
   def index
     @teams = Team.paginate page: params[:page]
   end

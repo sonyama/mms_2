@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   
+  before_action :log_update, only: [:destroy]
+  after_action :log_update, only: [:create]
   def new
   end
 
