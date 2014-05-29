@@ -10,4 +10,27 @@
 <%= link_to "Projects CSV ", admin_csvs_export_path(model: "Project",format: "csv"),
                                 class: "btn btn-large btn-primary" %><br><br>
                                 
-                                
+Import Users
+<%= form_tag admin_csvs_import_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= hidden_field_tag 'model', 'User' %>
+  <%= submit_tag "Import" %>
+<% end %> 
+Import Teams
+<%= form_tag admin_csvs_import_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= hidden_field_tag 'model', 'Team' %>
+  <%= submit_tag "Import" %>
+<% end %>
+Import Positions 
+<%= form_tag admin_csvs_import_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= hidden_field_tag 'model', 'Position' %>
+  <%= submit_tag "Import" %>
+<% end %> 
+Import Projects
+<%= form_tag admin_csvs_import_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= hidden_field_tag 'model', 'Project' %>
+  <%= submit_tag "Import" %>
+<% end %>                             
