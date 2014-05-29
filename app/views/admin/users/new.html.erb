@@ -35,7 +35,32 @@
         <%= check_box_tag "user[project_ids][]", project.id%>
       <% end %>  
       <p></p>
+      
       <h2>Skill list</h2>
+   <table>
+     <thead>
+       <tr>
+         <th></th>
+         <th>Skill</th>
+         <th>Level</th>
+         <th>Used_year</th>          
+       </tr>
+     </thead>
+
+     <tbody>
+       <%= f.fields_for :user_skills, @user.user_skills do |builder| %>
+            <tr>
+              <td><%= builder.check_box :_destroy, {},0,1%></td>
+              <%= builder.hidden_field :skill_id%>         
+              <td><%= builder.object.skill.try(:name) %></td>
+              <td><%= builder.text_field :level%></td>
+              <td><%= builder.text_field :used_year%></td>
+            </tr>
+          <% end %>
+     </tbody>
+  </table>
+         
+
       <%= f.submit "Create user", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
