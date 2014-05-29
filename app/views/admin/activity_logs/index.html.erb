@@ -1,0 +1,31 @@
+<% provide(:title, 'All log') %>
+<h1>All logs</h1>
+
+<%= will_paginate %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>User</th>
+      <th>Action</th>
+      <th>Description</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activity_logs.each do |log| %>
+      <tr>
+        <td><%= log.time %></td>
+        <td><%= log.user %></td>
+        <td><%= log.action %></td>
+        <td><%= log.description %></td>
+        <td><%= link_to 'Destroy', [:admin, log], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate %>
+

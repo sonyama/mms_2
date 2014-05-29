@@ -1,4 +1,6 @@
 class Admin::SkillsController < ApplicationController
+  
+  after_action :log_update, only: [:create, :update, :destroy]
 
   def index
     @skills = Skill.all
@@ -45,6 +47,8 @@ class Admin::SkillsController < ApplicationController
     flash[:success] = "Skill deleted."
     redirect_to admin_skills_url
   end
+  
+  
 
   private
 

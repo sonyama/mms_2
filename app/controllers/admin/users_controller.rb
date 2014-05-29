@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  
+  after_action :log_update, only: [:create, :update, :destroy]
 
   def create
     @user = User.new user_params

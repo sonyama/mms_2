@@ -1,4 +1,6 @@
 class Admin::AssignUserController < ApplicationController
+  
+  after_action :log_update, only: [:update]
    
   def edit
     @project = Project.find params[:id]

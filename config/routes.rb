@@ -8,6 +8,7 @@ Mms2::Application.routes.draw do
     resources :positions
     resources :projects
     resources :skills
+    resources :activity_logs, only: [:index, :destroy]
     root :to =>  'static_pages#home'
     resources :assign_user
   end

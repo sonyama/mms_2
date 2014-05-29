@@ -1,4 +1,7 @@
 class Admin::PositionsController < ApplicationController
+  
+  after_action :log_update, only: [:create, :update, :destroy]
+  
   def new
     @position = Position.new
   end

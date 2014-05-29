@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528055737) do
+ActiveRecord::Schema.define(version: 20140528083554) do
+
+  create_table "activity_logs", force: true do |t|
+    t.datetime "time"
+    t.string   "action"
+    t.string   "user"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "positions", force: true do |t|
     t.string   "name"
