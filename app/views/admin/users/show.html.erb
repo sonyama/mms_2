@@ -15,6 +15,15 @@
   <% else %>
     <h2>Has not taken part in any project</h2>
   <% end %>
+  
+  <% if @user.skills.count>0 %>
+    <h2>Skills</h2>
+    <% @user.skills.each do |p| %>
+      <%= link_to p.name, [:admin,p] %><br>
+    <% end %>
+  <% else %>
+    <h2>Don't have skill</h2>
+  <% end %>
 </div>
 <p></p>
 <div>

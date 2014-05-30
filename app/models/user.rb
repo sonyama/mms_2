@@ -1,7 +1,10 @@
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base     
   has_many :project_users, dependent: :destroy
   has_many :projects, through: :project_users
   accepts_nested_attributes_for :projects
+  has_many :user_skills
+  accepts_nested_attributes_for :user_skills, allow_destroy: true
+  has_many :skills, through: :user_skills
   belongs_to :team
   belongs_to :position
   validates :position_id, presence: true
