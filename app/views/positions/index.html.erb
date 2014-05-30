@@ -1,0 +1,16 @@
+<% provide(:title, 'All positions') %>
+<h1>All positions</h1>
+
+<%= will_paginate %>
+
+<ul class="positions">
+  <% @positions.each do |position| %>
+    <li>
+      <%= link_to position.name, position %>
+      <span class="content"><%= position.abbreviation %></span>
+    </li>
+
+  <% end %>
+</ul>
+
+<%= will_paginate %>

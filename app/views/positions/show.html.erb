@@ -1,0 +1,12 @@
+<% provide(:title, 'All positions') %>
+<h1><%= @position.name %> </h1>
+
+<div class="span8">
+    <% if @position.users.any? %>
+      <% @users.each do |user| %>
+         <%= link_to user.name, user %>
+         <span class="content"><%= user.email %></span>
+      <%= will_paginate @users %>
+      <% end %>
+    <% end %>
+ </div>
