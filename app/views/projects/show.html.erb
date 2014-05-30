@@ -1,0 +1,17 @@
+<% provide(:title, 'All project') %>
+<h1><%= @project.name %> </h1>
+
+<div class="span8">
+  <li> <%= link_to @project.name, @project %> </li>
+  <span class="content"> Abbreviation : <%= @project.abbreviation %> </span>
+  <span class="content"> Start date: <%= @project.start_date %> </span>
+  <span class="content"> End date: <%= @project.end_date %> </span>
+  <span class="content"> Team: <%= @project.team_id %> </span>
+  <span class="content"> End date: <%= @project.end_date %> </span>
+  <span class="content">Project Manager: <%= link_to @project_manager.name, @project_manager %> </span>
+  <div class="content"> Member: 
+  <% @project.users.each do |user| %>
+    <%= link_to user.name, user %>
+  <%end%>
+  </div>                                  
+</div>
