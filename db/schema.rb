@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140528083554) do
 
-  create_table "activity_logs", force: true do |t|
+  create_table "activity_logs", force: :cascade do |t|
     t.datetime "time"
     t.string   "action"
     t.string   "user"
@@ -22,21 +22,21 @@ ActiveRecord::Schema.define(version: 20140528083554) do
     t.datetime "updated_at"
   end
 
-  create_table "positions", force: true do |t|
+  create_table "positions", force: :cascade do |t|
     t.string   "name"
     t.string   "abbreviation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "project_users", force: true do |t|
+  create_table "project_users", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "projects", force: true do |t|
+  create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.string   "abbreviation"
     t.date     "start_date"
@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(version: 20140528083554) do
     t.datetime "updated_at"
   end
 
-  create_table "skills", force: true do |t|
+  create_table "skills", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "teams", force: true do |t|
+  create_table "teams", force: :cascade do |t|
     t.string   "description"
     t.integer  "team_leader"
     t.datetime "created_at"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140528083554) do
     t.string   "name"
   end
 
-  create_table "user_skills", force: true do |t|
+  create_table "user_skills", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "level"
     t.integer  "used_year"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20140528083554) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.date     "dob"
